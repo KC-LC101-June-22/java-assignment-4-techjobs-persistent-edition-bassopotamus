@@ -13,7 +13,8 @@ DROP
 TABLE job;
 
 -- Part 4: Test it with SQL
-SELECT name
+SELECT *
 FROM skill
-WHERE id IN (SELECT skills_id FROM job_skills WHERE skills_id IS NOT NULL)
+INNER JOIN job_skills ON job_skills.skills_id = skill.id
+WHERE job_skills.jobs_id IS NOT NULL
 ORDER BY name ASC;
